@@ -1,2 +1,1 @@
-# scorecard
-Scorecard generator for mcdonalds 
+# MC Report Generator

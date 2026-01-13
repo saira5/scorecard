@@ -1,0 +1,140 @@
+import { createMergedHeader } from '@/utils';
+
+export const MainHeaderNames = {
+    SALES: 'SALES',
+    VOICE: 'VOICE',
+    SERVICE: 'SERVICE',
+    DOORDASH: 'DOORDASH',
+    DIGITAL_APP: 'DIGITAL APP',
+    DELIVERY: 'DELIVERY',
+    FOOD_COST: 'FOOD COST',
+    LABOR: 'LABOR',
+};
+
+export enum SubHeaderKey {
+    SALES__STORES = 'SALES__STORES',
+    SALES__GUEST_COUNTS = 'SALES__GUEST_COUNTS',
+    SALES__SALES = 'SALES__SALES',
+    VOICE__OVERALL = 'VOICE__OVERALL',
+    VOICE__OVERALL_B2B = 'VOICE__OVERALL_B2B',
+    VOICE__ACCURACY = 'VOICE__ACCURACY',
+    VOICE__FRIENDLY = 'VOICE__FRIENDLY',
+    SERVICE__OEPE = 'SERVICE__OEPE',
+    SERVICE__KVS = 'SERVICE__KVS',
+    DOORDASH__ACCURACY = 'DOORDASH__ACCURACY',
+    DOORDASH__ADWT = 'DOORDASH__ADWT',
+    DIGITAL_APP__GC = 'DIGITAL_APP__GC',
+    DIGITAL_APP__PLUS_MINUS = 'DIGITAL_APP__PLUS_MINUS',
+    DELIVERY__GC = 'DELIVERY__GC',
+    DELIVERY__PLUS_MINUS = 'DELIVERY__PLUS_MINUS',
+    FOOD_COST__P_AND_L_FOOD_COST = 'FOOD_COST__P_AND_L_FOOD_COST',
+    FOOD_COST__FOOD_NORM = 'FOOD_COST__FOOD_NORM',
+    FOOD_COST__FOOD_OPPURTUNITY = 'FOOD_COST__FOOD_OPPURTUNITY',
+    FOOD_COST__FOOD_OVER_BASE_FOB = 'FOOD_COST__FOOD_OVER_BASE_FOB',
+    FOOD_COST__FOB_NORM = 'FOOD_COST__FOB_NORM',
+    LABOR__CREW_LABOR = 'LABOR__CREW_LABOR',
+    LABOR__LABOR_NORM = 'LABOR__LABOR_NORM',
+    LABOR__LABOR_OPPURTUNITY = 'LABOR__LABOR_OPPURTUNITY',
+}
+
+export const SubHeaderNames = {
+    [SubHeaderKey.SALES__STORES]: 'STORES',
+    [SubHeaderKey.SALES__GUEST_COUNTS]: 'Guest Counts',
+    [SubHeaderKey.SALES__SALES]: 'Sales',
+    [SubHeaderKey.VOICE__OVERALL]: 'Overall',
+    [SubHeaderKey.VOICE__OVERALL_B2B]: 'Overall B2B',
+    [SubHeaderKey.VOICE__ACCURACY]: 'Accuracy',
+    [SubHeaderKey.VOICE__FRIENDLY]: 'Friendly',
+    [SubHeaderKey.SERVICE__OEPE]: 'OEPE',
+    [SubHeaderKey.SERVICE__KVS]: 'KVS',
+    [SubHeaderKey.DOORDASH__ACCURACY]: 'Accuracy',
+    [SubHeaderKey.DOORDASH__ADWT]: 'ADWT',
+    [SubHeaderKey.DIGITAL_APP__GC]: 'GC',
+    [SubHeaderKey.DIGITAL_APP__PLUS_MINUS]: '+/-',
+    [SubHeaderKey.DELIVERY__GC]: 'GC',
+    [SubHeaderKey.DELIVERY__PLUS_MINUS]: '+/-',
+    [SubHeaderKey.FOOD_COST__P_AND_L_FOOD_COST]: 'P&L FOOD COST',
+    [SubHeaderKey.FOOD_COST__FOOD_NORM]: 'Food Norm',
+    [SubHeaderKey.FOOD_COST__FOOD_OPPURTUNITY]: 'Food Opportunity',
+    [SubHeaderKey.FOOD_COST__FOOD_OVER_BASE_FOB]: 'Food over base FOB',
+    [SubHeaderKey.FOOD_COST__FOB_NORM]: 'FOB Norm',
+    [SubHeaderKey.LABOR__CREW_LABOR]: 'Crew Labor',
+    [SubHeaderKey.LABOR__LABOR_NORM]: 'Labor Norm',
+    [SubHeaderKey.LABOR__LABOR_OPPURTUNITY]: 'Labor Opportunity',
+};
+
+export const InputHeaderNames = {
+    [SubHeaderKey.SALES__STORES]: null,
+    [SubHeaderKey.SALES__GUEST_COUNTS]: 'STW GC +/- %',
+    [SubHeaderKey.SALES__SALES]: 'All Net Sales +/- %',
+    [SubHeaderKey.SERVICE__KVS]: 'KVS Time/GC',
+    [SubHeaderKey.SERVICE__OEPE]: 'OEPE',
+    [SubHeaderKey.VOICE__OVERALL]: 'Overall Satisfaction',
+    [SubHeaderKey.VOICE__OVERALL_B2B]: 'Overall Satisfaction B2B',
+    [SubHeaderKey.VOICE__ACCURACY]: 'Accuracy',
+    [SubHeaderKey.VOICE__FRIENDLY]: 'Friendliness',
+    [SubHeaderKey.DOORDASH__ACCURACY]: 'Missing/Incorrect %',
+    [SubHeaderKey.DOORDASH__ADWT]: 'Average Avoidable Dasher Wait',
+    [SubHeaderKey.DIGITAL_APP__GC]: 'Digital App GC/R/D',
+    [SubHeaderKey.DIGITAL_APP__PLUS_MINUS]: 'Digital App GC/R/D +/-',
+    [SubHeaderKey.DELIVERY__GC]: '3PO McDelivery GC/R/D',
+    [SubHeaderKey.DELIVERY__PLUS_MINUS]: '3PO McDelivery GC/R/D +/-',
+    [SubHeaderKey.FOOD_COST__P_AND_L_FOOD_COST]: 'P & L Food Cost %',
+    [SubHeaderKey.FOOD_COST__FOOD_NORM]: 'Food Norm',
+    [SubHeaderKey.FOOD_COST__FOOD_OPPURTUNITY]: createMergedHeader('Food', 'Total Food %'),
+    [SubHeaderKey.FOOD_COST__FOOD_OVER_BASE_FOB]: 'FOB %',
+    [SubHeaderKey.FOOD_COST__FOB_NORM]: 'FOB Norm',
+    [SubHeaderKey.LABOR__CREW_LABOR]: 'Crew Labor %',
+    [SubHeaderKey.LABOR__LABOR_NORM]: 'Labor Norm',
+    [SubHeaderKey.LABOR__LABOR_OPPURTUNITY]: createMergedHeader('Labor', 'Labor %'),
+};
+
+export const OrderedHeadersAndSubHeaders = [
+    {
+        mainHeader: MainHeaderNames.SALES,
+        subHeaderKeys: [SubHeaderKey.SALES__STORES, SubHeaderKey.SALES__GUEST_COUNTS, SubHeaderKey.SALES__SALES],
+    },
+    {
+        mainHeader: MainHeaderNames.VOICE,
+        subHeaderKeys: [
+            SubHeaderKey.VOICE__OVERALL,
+            SubHeaderKey.VOICE__OVERALL_B2B,
+            SubHeaderKey.VOICE__ACCURACY,
+            SubHeaderKey.VOICE__FRIENDLY,
+        ],
+    },
+    {
+        mainHeader: MainHeaderNames.SERVICE,
+        subHeaderKeys: [SubHeaderKey.SERVICE__OEPE, SubHeaderKey.SERVICE__KVS],
+    },
+    {
+        mainHeader: MainHeaderNames.DOORDASH,
+        subHeaderKeys: [SubHeaderKey.DOORDASH__ACCURACY, SubHeaderKey.DOORDASH__ADWT],
+    },
+    {
+        mainHeader: MainHeaderNames.DIGITAL_APP,
+        subHeaderKeys: [SubHeaderKey.DIGITAL_APP__GC, SubHeaderKey.DIGITAL_APP__PLUS_MINUS],
+    },
+    {
+        mainHeader: MainHeaderNames.DELIVERY,
+        subHeaderKeys: [SubHeaderKey.DELIVERY__GC, SubHeaderKey.DELIVERY__PLUS_MINUS],
+    },
+    {
+        mainHeader: MainHeaderNames.FOOD_COST,
+        subHeaderKeys: [
+            SubHeaderKey.FOOD_COST__P_AND_L_FOOD_COST,
+            SubHeaderKey.FOOD_COST__FOOD_NORM,
+            // SubHeaderKey.FOOD_COST__FOOD_OPPURTUNITY,
+            SubHeaderKey.FOOD_COST__FOOD_OVER_BASE_FOB,
+            SubHeaderKey.FOOD_COST__FOB_NORM,
+        ],
+    },
+    {
+        mainHeader: MainHeaderNames.LABOR,
+        subHeaderKeys: [
+            SubHeaderKey.LABOR__CREW_LABOR,
+            SubHeaderKey.LABOR__LABOR_NORM,
+            // SubHeaderKey.LABOR__LABOR_OPPURTUNITY,
+        ],
+    },
+];
