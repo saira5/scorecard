@@ -39,7 +39,7 @@ const getColorForPersonCell = (cellValue: PersonName): string => {
         case PersonName.VICTOR:
         case PersonName.CHRIS:
             return 'B45E05';
-        case PersonName.LYNNE:
+        case PersonName.JEAN:
         case PersonName.AL:
         case PersonName.ALANA:
         case PersonName.DYLAN:

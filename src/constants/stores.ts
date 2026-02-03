@@ -4,7 +4,7 @@ export enum PersonName {
     ZULEIMA = 'Zuleima',
     VICTOR = 'Victor',
     CHRIS = 'Chris',
-    LYNNE = 'Lynne',
+    JEAN = 'Jean',
     AL = 'Al',
     ALANA = 'Alana',
     DYLAN = 'Dylan',
@@ -32,7 +32,7 @@ const OrderedStoresPerPerson = [
         stores: ['1630', '3264', '5123', '7430', '8072', '27256'],
     },
     {
-        person: PersonName.LYNNE,
+        person: PersonName.JEAN,
         stores: ['5802', '7959', '10275', '16118'],
     },
     {

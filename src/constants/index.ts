@@ -67,7 +67,7 @@ export const InputHeaderNames = {
     [SubHeaderKey.SALES__STORES]: null,
     [SubHeaderKey.SALES__GUEST_COUNTS]: 'STW GC +/- %',
     [SubHeaderKey.SALES__SALES]: 'All Net Sales +/- %',
-    [SubHeaderKey.SERVICE__KVS]: 'KVS Time/GC',
+    [SubHeaderKey.SERVICE__KVS]: 'KVS Time / GC',
     [SubHeaderKey.SERVICE__OEPE]: 'OEPE',
     [SubHeaderKey.VOICE__OVERALL]: 'Overall Satisfaction',
     [SubHeaderKey.VOICE__OVERALL_B2B]: 'Overall Satisfaction B2B',

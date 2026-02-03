@@ -224,7 +224,9 @@ export default function ExcelFilesMerger() {
         if (!workbook) return;
 
         const localDate = getLocalDate();
-        const fileName = generateReportFileName(1, localDate);
+        const startDate = dateRange[0].startDate.toLocaleDateString();
+        const endDate = dateRange[0].endDate.toLocaleDateString();
+        const fileName = generateReportFileName(1, startDate, endDate);
 
         if (type === 'xlsx') {
             setIsDownloadingXLSX(true);

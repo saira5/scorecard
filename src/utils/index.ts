@@ -21,8 +21,8 @@ export const getLocalDate = () => {
     return localDate.toISOString().split('T')[0];
 };
 
-export const generateReportFileName = (reportNumber: number, createdDate: string) => {
-    return `mc-report_${createdDate}_File-${reportNumber}.xlsx`;
+export const generateReportFileName = (reportNumber: number, startDate: string, endDate: string) => {
+    return `Scorecard_${startDate}_to_${endDate}.xlsx`;
 };
 
 export function getColumnLetterFromIndex(index: number): string {
