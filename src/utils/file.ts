@@ -143,15 +143,17 @@ const formatStoreId = (storeId: string | null | undefined, fileKey: FileKey): st
         case FileKey.QSR_DELIVERY:
         case FileKey.QSR_DIGITAL_APP:
         case FileKey.QSR_FOOD_COST:
-            return storeId.match(/^\d+ /)?.[0].trim();
+            return storeId.match(/^\d+/)?.[0].trim();
         case FileKey.VOICE:
-            return storeId.match(/^\d+ /)?.[0].trim().replace(/^0*/, ''); // Removes leading zeros
+            return storeId.match(/^\d+/)?.[0].trim().replace(/^0*/, ''); // Removes leading zeros
         case FileKey.DOORDASH:
             return storeId.trim();
         case FileKey.NORM:
             return storeId.trim();
         case FileKey.BENCHMARK:
             return storeId.trim();
+        case FileKey.RHMC:
+            return storeId.match(/^\d+/)?.[0].trim();
         default:
             return null;
     }
@@ -162,7 +164,7 @@ const formatCellValue = (value: string | null | undefined, fileKey: FileKey): st
 
     if (fileKey === FileKey.NORM) return `${value.trim()}%`;
 
-    return value.trim();
+    return value.trim().replace(/[$,]/g, '');
 };
 
 const getUnselectedKnownColumnKeys = (filesData: FileWithColumns[]): SubHeaderKey[] => {

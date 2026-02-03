@@ -144,4 +144,10 @@ export const WmTargetsSubHeader = {
         optimalDirection: null,
         targetColumnKey: null,
     },
+    [SubHeaderKey.RHMC__DONATIONS]: {
+        text: '',
+        value: null,
+        optimalDirection: null,
+        targetColumnKey: null,
+    },
 };

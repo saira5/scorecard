@@ -9,6 +9,7 @@ export const MainHeaderNames = {
     DELIVERY: 'DELIVERY',
     FOOD_COST: 'FOOD COST',
     LABOR: 'LABOR',
+    RHMC: 'RHMC',
 };
 
 export enum SubHeaderKey {
@@ -35,6 +36,7 @@ export enum SubHeaderKey {
     LABOR__CREW_LABOR = 'LABOR__CREW_LABOR',
     LABOR__LABOR_NORM = 'LABOR__LABOR_NORM',
     LABOR__LABOR_OPPURTUNITY = 'LABOR__LABOR_OPPURTUNITY',
+    RHMC__DONATIONS = 'RHMC__DONATIONS',
 }
 
 export const SubHeaderNames = {
@@ -61,6 +63,7 @@ export const SubHeaderNames = {
     [SubHeaderKey.LABOR__CREW_LABOR]: 'Crew Labor',
     [SubHeaderKey.LABOR__LABOR_NORM]: 'Labor Norm',
     [SubHeaderKey.LABOR__LABOR_OPPURTUNITY]: 'Labor Opportunity',
+    [SubHeaderKey.RHMC__DONATIONS]: 'Donations $',
 };
 
 export const InputHeaderNames = {
@@ -87,6 +90,7 @@ export const InputHeaderNames = {
     [SubHeaderKey.LABOR__CREW_LABOR]: 'Crew Labor %',
     [SubHeaderKey.LABOR__LABOR_NORM]: 'Labor Norm',
     [SubHeaderKey.LABOR__LABOR_OPPURTUNITY]: createMergedHeader('Labor', 'Labor %'),
+    [SubHeaderKey.RHMC__DONATIONS]: 'Donations $',
 };
 
 export const OrderedHeadersAndSubHeaders = [
@@ -136,5 +140,9 @@ export const OrderedHeadersAndSubHeaders = [
             SubHeaderKey.LABOR__LABOR_NORM,
             // SubHeaderKey.LABOR__LABOR_OPPURTUNITY,
         ],
+    },
+    {
+        mainHeader: MainHeaderNames.RHMC,
+        subHeaderKeys: [SubHeaderKey.RHMC__DONATIONS],
     },
 ];

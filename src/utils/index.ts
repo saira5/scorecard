@@ -50,7 +50,7 @@ export function createMergedHeader(superHeader: string | null, header: string): 
 }
 
 export function isNumericOrPercentage(value: string): boolean {
-    return /^-?\d+(\.\d+)?%?$/.test(value);
+    return /^-?\$?[\d,]+(\.\d+)?%?$/.test(value);
 }
 
 export function isStars(value: string): boolean {

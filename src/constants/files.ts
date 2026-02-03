@@ -12,6 +12,7 @@ export enum FileKey {
     DOORDASH = 'DOORDASH',
     NORM = 'NORM',
     BENCHMARK = 'BENCHMARK',
+    RHMC = 'RHMC',
 }
 
 export const FileToStoreIdMap = {
@@ -25,6 +26,7 @@ export const FileToStoreIdMap = {
     [FileKey.DOORDASH]: 'Merchant Supplied ID',
     [FileKey.NORM]: 'Store',
     [FileKey.BENCHMARK]: createMergedHeader('P&L Benchmarking', 'Store'),
+    [FileKey.RHMC]: 'Loc',
 };
 
 export const FileConfig = {
@@ -38,6 +40,7 @@ export const FileConfig = {
     [FileKey.DOORDASH]: { superHeaderRow: null, headerRow: 0 },
     [FileKey.NORM]: { superHeaderRow: null, headerRow: 1 },
     [FileKey.BENCHMARK]: { superHeaderRow: 2, headerRow: 3 },
+    [FileKey.RHMC]: { superHeaderRow: null, headerRow: 0 },
 };
 
 export const ColumnsPerFileKeyMap = {
@@ -59,7 +62,11 @@ export const ColumnsPerFileKeyMap = {
         SubHeaderKey.FOOD_COST__FOB_NORM,
         SubHeaderKey.LABOR__LABOR_NORM,
     ],
-    [FileKey.BENCHMARK]: [SubHeaderKey.FOOD_COST__FOOD_OPPURTUNITY, SubHeaderKey.LABOR__LABOR_OPPURTUNITY],
+    [FileKey.BENCHMARK]: [
+        SubHeaderKey.FOOD_COST__FOOD_OPPURTUNITY,
+        SubHeaderKey.LABOR__LABOR_OPPURTUNITY,
+    ],
+    [FileKey.RHMC]: [SubHeaderKey.RHMC__DONATIONS],
 };
 
 export const DependencyInputHeaderNamesPerFile: Record<string, Record<string, Record<string, string>>> = {

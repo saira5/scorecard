@@ -55,6 +55,7 @@ export default function ExcelFilesMerger() {
     const [benchmarkFileData, setBenchmarkFileData] = useState<FileData>(
         getDefaultFileData('Benchmark File', FileKey.BENCHMARK),
     );
+    const [rhmcFileData, setRhmcFileData] = useState<FileData>(getDefaultFileData('RHMC File', FileKey.RHMC));
 
     const [normFileData, setNormFileData] = useState<FileData>(getDefaultFileData('Norm File', FileKey.NORM));
 
@@ -73,6 +74,7 @@ export default function ExcelFilesMerger() {
         doorDashFileData,
         // benchmarkFileData,
         normFileData,
+        rhmcFileData,
     ];
 
     const qsrFilesData = [
@@ -87,6 +89,7 @@ export default function ExcelFilesMerger() {
     const doorDashFilesData = [doorDashFileData];
     const benchmarkFilesData = [benchmarkFileData];
     const normFilesData = [normFileData];
+    const rhmcFilesData = [rhmcFileData];
 
     const mandatoryFilesData: FileData[] = [...allFilesData];
     // const mandatoryFilesData: FileData[] = [];
@@ -443,6 +446,28 @@ export default function ExcelFilesMerger() {
                             </div>
                         )}
                     </div>
+
+                    {/* RHMC Files Section */}
+                    <div className="bg-zinc-50 rounded-xl p-6 shadow-sm border border-gray-200 mb-4 md:col-span-3 col-span-6 flex flex-col justify-between">
+                        <div>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Upload RHMC Files</h2>
+                            <div className="grid grid-cols-1 gap-6 mb-6">
+                                <FileUpload fileData={rhmcFileData} onFileDataChange={setRhmcFileData} />
+                            </div>
+                        </div>
+
+                        {getSelectedFilesCount(rhmcFilesData) > 0 && (
+                            <div className="flex justify-center">
+                                <Button
+                                    variant="ghost"
+                                    className="border border-red-500 text-red-600 hover:bg-red-50 hover:text-red-700 font-medium px-4 py-2 rounded-md transition"
+                                    onClick={() => setRhmcFileData(resetFileData(rhmcFileData))}
+                                >
+                                    Reset RHMC Files
+                                </Button>
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 <div className="p-6 rounded-xl shadow mb-8">
@@ -465,14 +490,13 @@ export default function ExcelFilesMerger() {
                         }
                         className={`
 								inline-flex items-center px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 
-								${
-                                    getSelectedFilesCount(allFilesData) >= 1 &&
-                                    processingCount === 0 &&
-                                    !isProcessing &&
-                                    areAllMandatoryFilesSelected()
-                                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl'
-                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                }`}
+								${getSelectedFilesCount(allFilesData) >= 1 &&
+                                processingCount === 0 &&
+                                !isProcessing &&
+                                areAllMandatoryFilesSelected()
+                                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl'
+                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                            }`}
                     >
                         {processingCount > 0 || isProcessing ? (
                             <>
@@ -585,6 +609,6 @@ export default function ExcelFilesMerger() {
                     </div>
                 )}
             </div>
-        </div>
+        </div >
     );
 }
