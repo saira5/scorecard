@@ -254,7 +254,10 @@ export default function ExcelFilesMerger() {
             const fileBuffer = await workbook.xlsx.writeBuffer();
             const fileBufferString = Buffer.from(fileBuffer).toString('base64');
 
-            const result = await uploadReport(fileBufferString, getDateRangeString());
+            const startDate = dateRange[0].startDate.toLocaleDateString();
+            const endDate = dateRange[0].endDate.toLocaleDateString();
+
+            const result = await uploadReport(fileBufferString, getDateRangeString(), startDate, endDate);
 
             if (result.success) {
                 toast.success('Report saved successfully!');
