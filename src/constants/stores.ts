@@ -1,9 +1,5 @@
 export enum PersonName {
-    NAJMA = 'Najma',
     EMILIA = 'Emilia',
-    ZULEIMA = 'Zuleima',
-    VICTOR = 'Victor',
-    CHRIS = 'Chris',
     JEAN = 'Jean',
     AL = 'Al',
     ALANA = 'Alana',
@@ -12,24 +8,8 @@ export enum PersonName {
 
 const OrderedStoresPerPerson = [
     {
-        person: PersonName.NAJMA,
-        stores: ['1831', '20513', '20514', '23718', '28181'],
-    },
-    {
         person: PersonName.EMILIA,
-        stores: ['5176', '11491', '13675', '34360'],
-    },
-    {
-        person: PersonName.ZULEIMA,
-        stores: ['4706', '10000', '10270', '14112', '19891'],
-    },
-    {
-        person: PersonName.VICTOR,
-        stores: ['1631', '1982', '6432', '10428', '10738', '17539', '32581'],
-    },
-    {
-        person: PersonName.CHRIS,
-        stores: ['1630', '3264', '5123', '7430', '8072', '27256'],
+        stores: ['1831', '23718', '34360', '11491', '5176'],
     },
     {
         person: PersonName.JEAN,
