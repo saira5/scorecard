@@ -22,7 +22,7 @@ export const getCurrentDateLastReportNumber = async () => {
     }
 };
 
-export const uploadReport = async (fileBufferString: string, dateRangeString: string) => {
+export const uploadReport = async (fileBufferString: string, dateRangeString: string, startDate: string, endDate: string) => {
     try {
         await connectToDb();
 
@@ -35,7 +35,7 @@ export const uploadReport = async (fileBufferString: string, dateRangeString: st
         const reportNumber = reportNumberResponse.reportNumber + 1;
         const createdDate = getLocalDate();
 
-        const filename = generateReportFileName(reportNumber, createdDate);
+        const filename = generateReportFileName(reportNumber, startDate, endDate);
 
         const contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
 

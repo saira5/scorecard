@@ -22,7 +22,7 @@ export const getLocalDate = () => {
 };
 
 export const generateReportFileName = (reportNumber: number, startDate: string, endDate: string) => {
-    return `Scorecard_${startDate}_to_${endDate}.xlsx`;
+    return `Scorecard_${reportNumber}_${startDate}_to_${endDate}.xlsx`;
 };
 
 export function getColumnLetterFromIndex(index: number): string {
