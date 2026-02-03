@@ -32,13 +32,7 @@ interface XlsxCellStyle {
 
 const getColorForPersonCell = (cellValue: PersonName): string => {
     switch (cellValue) {
-        case PersonName.NAJMA:
         case PersonName.EMILIA:
-        case PersonName.ZULEIMA:
-            return '073762';
-        case PersonName.VICTOR:
-        case PersonName.CHRIS:
-            return 'B45E05';
         case PersonName.JEAN:
         case PersonName.AL:
         case PersonName.ALANA:
