@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "Munib Ur Rehman Qasim",
-    "email": "munib200002@gmail.com"
+    "name": "Meer Muneeb Khan",
+    "email": "meermuneeb18@gmail.com"
   },
   "scripts": {
     "dev": "next dev",
