@@ -52,15 +52,16 @@ export default function ExcelFilesMerger() {
         getDefaultFileData('Door Dash File', FileKey.DOORDASH),
     );
 
-    const [benchmarkFileData, setBenchmarkFileData] = useState<FileData>(
-        getDefaultFileData('Benchmark File', FileKey.BENCHMARK),
-    );
+    // const [benchmarkFileData, setBenchmarkFileData] = useState<FileData>(
+    //     getDefaultFileData('Benchmark File', FileKey.BENCHMARK),
+    // );
     const [rhmcFileData, setRhmcFileData] = useState<FileData>(getDefaultFileData('RHMC File', FileKey.RHMC));
 
     const [normFileData, setNormFileData] = useState<FileData>(getDefaultFileData('Norm File', FileKey.NORM));
 
     useEffect(() => {
         preLoadNormFile();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const allFilesData = [
@@ -87,7 +88,7 @@ export default function ExcelFilesMerger() {
     ];
     const voiceFilesData = [voiceFileData];
     const doorDashFilesData = [doorDashFileData];
-    const benchmarkFilesData = [benchmarkFileData];
+    // const benchmarkFilesData = [benchmarkFileData];
     const normFilesData = [normFileData];
     const rhmcFilesData = [rhmcFileData];
 
@@ -226,7 +227,7 @@ export default function ExcelFilesMerger() {
     const handleDownload = async (type: 'xlsx' | 'pdf') => {
         if (!workbook) return;
 
-        const localDate = getLocalDate();
+        // const localDate = getLocalDate();
         const startDate = dateRange[0].startDate.toLocaleDateString();
         const endDate = dateRange[0].endDate.toLocaleDateString();
         const fileName = generateReportFileName(1, startDate, endDate);
