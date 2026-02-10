@@ -2,7 +2,7 @@ import connectToDb from '@/lib/mongoose';
 import User from '@/models/User';
 import { hashPassword } from '@/utils/password';
 
-export const GET = async (req: Request) => {
+export const GET = async (_req: Request) => {
     console.log('Initiating User!');
 
     await connectToDb();
@@ -16,7 +16,7 @@ export const GET = async (req: Request) => {
         return new Response('Admin credentials are not set', { status: 500 });
     }
 
-    let user = await User.findOne({ username: adminUsername });
+    const user = await User.findOne({ username: adminUsername });
 
     if (user) {
         console.log('User already exists, updating password');
