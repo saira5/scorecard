@@ -2,31 +2,37 @@ import connectToDb from '@/lib/mongoose';
 import User from '@/models/User';
 import { hashPassword } from '@/utils/password';
 
-export const GET = async (req: Request) => {
+export const GET = async (_req: Request) => {
     console.log('Initiating User!');
 
     await connectToDb();
 
-    const user = await User.findOne({});
+    // Clean up environment variables in case they have quotes
+    const adminUsername = process.env.ADMIN_USERNAME?.replace(/['"]/g, '');
+    const adminPassword = process.env.ADMIN_PASSWORD?.replace(/['"]/g, '');
 
-    if (user) {
-        console.log('User already exists');
-        return Response.redirect(new URL('/login', req.url));
-    }
-
-    if (!process.env.ADMIN_USERNAME || !process.env.ADMIN_PASSWORD) {
+    if (!adminUsername || !adminPassword) {
         console.error('Admin credentials are not set in environment variables');
         return new Response('Admin credentials are not set', { status: 500 });
     }
 
+    const user = await User.findOne({ username: adminUsername });
+
+    if (user) {
+        console.log('User already exists, updating password');
+        user.password = hashPassword(adminPassword);
+        await user.save();
+        return Response.json({ message: 'Admin password updated successfully', username: adminUsername });
+    }
+
     const newUser = new User({
-        username: process.env.ADMIN_USERNAME,
-        password: hashPassword(process.env.ADMIN_PASSWORD),
+        username: adminUsername,
+        password: hashPassword(adminPassword),
     });
 
     await newUser.save();
 
     console.log('New user created:', newUser);
 
-    return Response.redirect(new URL('/login', req.url));
+    return Response.json({ message: 'Admin user created successfully', username: adminUsername });
 };
